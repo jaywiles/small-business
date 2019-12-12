@@ -2,34 +2,36 @@ import React from 'react'
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
+import '../App.css'
 
-const Navigation = () => {
+const Nav = (props) => {
+  const navStyle = {
+    color: 'white'
+  }
+
   return (
     <AppBar position="relative">
       <Toolbar>
-        <IconButton color="inherit">
-          <MenuIcon />
-        </IconButton>
       <Typography variant="h6" style={{ flexGrow: "1" }}>
         Austin Small Business
       </Typography>
         <ul className="nav-list">
           <li className="nav-list-item">
-            <Link to="/listings">Listings</Link>
+            <Link to="/listings" style={navStyle}>Listings</Link>
           </li>
-          {this.state.loggedIn ? (
+          {props.loggedIn ? (
             <div>
               <li className="nav-list-item">
-                <Link to="/add">Add</Link>
+                <Link to="/add" style={navStyle}>Add</Link>
               </li>
               <li className="nav-list-item">
-                <Link to="/">LOGOUT</Link>
+                <Link to="/" style={navStyle}>LOGOUT</Link>
               </li>
             </div>
             ):(
             <div>
               <li className="nav-list-item">
-                <Link to="/login">Login</Link>
+                <Link to="/login" style={navStyle}>Login</Link>
               </li>
             </div>
             )
@@ -40,4 +42,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation;
+export default Nav;
