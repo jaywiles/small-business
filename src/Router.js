@@ -17,7 +17,7 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
       {...rest}
       render={(props) => checkAuth()
           ? <Component {...props} />
-          : <Redirect to="/login" />}
+          : <Redirect to="/" />}
       />
   )
 }
@@ -25,11 +25,11 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 const Router = () => {
   return (
     <Switch>
-      {/* <Route exact path="/" component={Listings}/> */}
+      <Route exact path="/" component={Listings}/>
       {/* how to target each individual business???? */}
-      {/* <Route path="/listing/:id" component={Listing}/> */}
-      {/* <Route path="login" component={Login}/> */}
-      {/* <ProtectedRoute path="/add" component={Add}/> */}
+      <Route path="/listing/:name" component={Listing}/>
+      <Route path="login" component={Login}/>
+      <ProtectedRoute path="/add" component={Add}/>
     </Switch>
   );
 };
