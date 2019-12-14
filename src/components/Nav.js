@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
@@ -6,10 +6,11 @@ import '../App.css'
 
 const Nav = (props) => {
   const navStyle = {
-    color: 'white'
+    color: 'white',
   }
 
-  if (document.cookie = "loggedIn=true") {
+//   if (document.cookie = "loggedIn=true") {
+  if (props.loggedIn) {
     return (
       <AppBar position="relative">
         <Toolbar>
@@ -24,9 +25,7 @@ const Nav = (props) => {
               <Link to="/add" style={navStyle}>Add</Link>
             </li>
             <li className="nav-list-item"
-              onClick={() => {
-                document.cookie = "loggedIn=false"
-                window.location.replace("/login")
+              onClick={() => {props.logout = false
               }}>
               <Link to="/" style={navStyle}>LOGOUT</Link>
             </li>
@@ -34,7 +33,8 @@ const Nav = (props) => {
         </Toolbar>
       </AppBar>
     )
-  } else if (document.cookie = "loggedIn=false") {
+  // } else if (document.cookie = "loggedIn=false") {
+  } else if (!props.loggedIn) {
     return (
       <AppBar position="relative">
         <Toolbar>
@@ -65,7 +65,7 @@ const Nav = (props) => {
 //           <li className="nav-list-item">
 //             <Link to="/listings" style={navStyle}>Listings</Link>
 //           </li>
-//           {document.cookie = "loggedIn=true" ? (
+//           {props.loggedIn = true ? (
 //             <div>
 //               <li className="nav-list-item">
 //                 <Link to="/add" style={navStyle}>Add</Link>
@@ -75,15 +75,13 @@ const Nav = (props) => {
 //               </li>
 //             </div>
 //             ):(
-//             <div>
-//               <li className="nav-list-item"
-//                 onClick={() => {
-//                   document.cookie = "loggedIn="
-//                   window.location.replace("/login")
-//                 }}>Login
-//                 {/* <Link to="/login" style={navStyle}>Login</Link> */}
-//               </li>
-//             </div>
+//             <li className="nav-list-item"
+//               onClick={() => {
+//                 document.cookie = "loggedIn="
+//                 window.location.replace("/login")
+//               }}>Login
+//               {/* <Link to="/login" style={navStyle}>Login</Link> */}
+//             </li>
 //             )
 //           }
 //         </ul>

@@ -4,19 +4,44 @@ import Nav from './components/Nav'
 import './App.css'
 import Router from './Router'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import store from './redux/store'
 
-console.log(document.cookie)
+// function App() {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: true,
+    }
+  }
 
-function App() {
-// class App extends Component {
-  // render() {
+  toggleSignIn = () => {
+		this.setState({ loggedIn: !this.state.loggedIn })
+  }
+  
+  handleLogin = (props) => {
+    {console.log(props)}
+    this.passingLoggedIn(props);
+  }
+
+  render() {
     return (
-      <BrowserRouter>
-        <Nav />
-        <Router />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+        {console.log(this.state.loggedIn)}
+        {/* {console.log(this.listings)} */}
+          <Nav
+            loggedIn={this.state.loggedIn}
+            logout={this.toggleSignIn} />
+          <Router
+            // listings={this.state.listings}
+            loggedIn={this.state.loggedIn}
+            login={this.toggleSignIn} />
+        </BrowserRouter>
+      </Provider>
     );
-  // }
+  }
 }
 
 export default App;

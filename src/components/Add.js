@@ -26,7 +26,7 @@ class Add extends Component {
     const newListing = { ...this.state }
     // last part of next line changed from carTotal
     newListing.id = this.props.listingTotal + 1
-    delete newListing.open
+    // delete newListing.open
     console.log("LISTING: ", newListing)
     // last part of next line changed from addCar
     this.props.addListing(newListing)
@@ -76,7 +76,7 @@ class Add extends Component {
           <br />
           <Button variant="contained" color="primary" type="submit">Add Listing</Button>
         </form>
-        </div>
+      </div>
     )
   }
 }

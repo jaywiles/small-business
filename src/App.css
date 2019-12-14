@@ -40,10 +40,12 @@
 .nav-list {
   list-style: none;
   display: flex;
+  text-decoration: none;
   /* color: white; */
 }
 
 .nav-list-item {
   margin: auto 20px;
-  text-decoration: 'none'
+  text-decoration: none;
+  /* color: white; */
 }
