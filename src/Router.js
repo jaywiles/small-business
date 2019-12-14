@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
-import cookie from 'cookie'
+// import cookie from 'cookie'
 import Listings from './containers/Listings'
 // import Listing from './containers/Listing'
 import Login from './components/Login'
@@ -22,7 +22,7 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
       {...rest}
       render={(props) => checkAuth()
           ? <Component {...props} />
-          : <Redirect to="/" />}
+          : <Redirect to="/login" />}
       />
   )
 }

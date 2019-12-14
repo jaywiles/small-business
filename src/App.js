@@ -21,7 +21,6 @@ class App extends Component {
   }
   
   handleLogin = (props) => {
-    {console.log(props)}
     this.passingLoggedIn(props);
   }
 
