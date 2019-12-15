@@ -5,38 +5,40 @@ import Listings from './containers/Listings'
 // import Listing from './containers/Listing'
 import Login from './components/Login'
 import Add from './containers/Add'
-
-const checkAuth = (props) => {
-  if (props.loggedIn) {
-    return true
-  } else {
-    return false
-  }
-  // const cookies = cookie.parse(document.cookie)
-  // return cookies["loggedIn"] ? true : false
-}
-
-const ProtectedRoute = ({component: Component, ...rest}) => {
-  return (
-      <Route
-      {...rest}
-      render={(props) => checkAuth()
-          ? <Component {...props} />
-          : <Redirect to="/login" />}
-      />
-  )
-}
+import user from './redux/reducers'
 
 const Router = (props) => {
+  const checkAuth = () => {
+    console.log(props.loggedIn)
+    if (props.loggedIn) {
+      return true
+    } else {
+      return false
+    }
+    // const cookies = cookie.parse(document.cookie)
+    // return cookies["loggedIn"] ? true : false
+  }
+  
+  const ProtectedRoute = ({component: Component, ...rest}) => {
+    return (
+        <Route
+        {...rest}
+        render={(props) => checkAuth()
+            ? <Component {...props} />
+            : <Redirect to="/login" />}
+        />
+    )
+  }
+  
   return (
     <Switch>
-      {console.log(props.loggedIn)}
+      {console.log(props.signIn)}
       <Route exact path="/" component={Listings}/>
       {/* how to target each individual business???? */}
       {/* <Route path="/listing/:id" component={Listing}/> */}
-      <Route path="/login" component={Login}/>
+      <Route signIn={props.signIn} path="/login" component={Login}/>
       {/* NEED TO CHANGE BELOW BACK TO ProtectedRoute */}
-      <Route path="/add" component={Add}/>
+      <ProtectedRoute path="/add" component={Add}/>
     </Switch>
   );
 };

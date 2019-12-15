@@ -22,6 +22,7 @@ class Add extends Component {
   }
 
   handleSubmit = (e) => {
+    // debugger;
     e.preventDefault()
     const newListing = { ...this.state }
     // last part of next line changed from carTotal

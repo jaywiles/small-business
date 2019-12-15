@@ -1,4 +1,5 @@
 export default {
+  // loggedIn: false,
   user: {
     username: 'test',
     password: 'test'

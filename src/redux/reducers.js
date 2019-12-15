@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
+// import { toggleSignIn } from '../App'
 
-// from original project...
 const user = (state = [], action) => {
   switch(action.type) {
     case "LOGIN_COMPLETE":
+      // toggleSignIn();
       return {
+        // toggleSignIn,
         ...action.value,
         loggedIn: true,
       }
