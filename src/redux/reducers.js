@@ -1,19 +1,20 @@
 import { combineReducers } from 'redux'
-// import { toggleSignIn } from '../App'
+import cookie from 'cookie'
 
 const user = (state = [], action) => {
   switch(action.type) {
     case "LOGIN_COMPLETE":
-      // toggleSignIn();
       return {
         // toggleSignIn,
         ...action.value,
+        // cookie: "loggedIn=true",
         loggedIn: true,
       }
     case "LOGOUT_COMPLETE":
       return {
         ...state,
         user: null,
+        // cookie: "loggedIn=false",
         loggedIn: false,
       }
     default:

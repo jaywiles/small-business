@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import Login from '../components/Login'
-// import { deleteListing } from '../redux/actions'
+import { withRouter } from "react-router-dom";
+import { login } from '../redux/actions'
 
 const mapStateToProps = state => {
   console.log(state);

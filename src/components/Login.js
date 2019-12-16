@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core'
 import { login } from '../redux/actions'
 import listings from '../redux/state'
+import cookie from 'cookie'
 
 class Login extends Component {
   state = {
@@ -22,14 +23,17 @@ class Login extends Component {
     this.setState(newState)
   }
 
-  handleLogin = (e) => {
+  handleLogin = (e, {user}) => {
     // console.log("this is a test")
     e.preventDefault();
-    const user = (this.state.username, this.state.password)
-    login(user);
+    {console.log(user.loggedIn)}
+    document.cookie = "loggedIn=true";
+    {console.log(document.cookie)}
+    // const user = (this.state.username, this.state.password)
+    login();
     // console.log(user);
     // console.log(login())
-    window.location.replace("/");
+    // window.location.replace("/");
   }
 
   // handleSubmit = (e) => {
@@ -48,7 +52,7 @@ class Login extends Component {
   render() {
     return (
       <div className="signin-container">
-        {/* {console.log(signIn)} */}
+        {console.log(document.cookie)}
         <AppBar position="static">
           <Typography>Sign In</Typography>
         </AppBar>
@@ -82,7 +86,7 @@ class Login extends Component {
             fullWidth
             variant="contained"
             color="primary"
-            onClick={() => { login() }}
+            // onClick={() => { login() }}
           >Sign In</Button>
         </form>
       </div>

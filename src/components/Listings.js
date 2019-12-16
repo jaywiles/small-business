@@ -30,7 +30,7 @@ const Listings = (props) => {
             <TableCell component="th" scope="row">
               {listing.id}
             </TableCell>
-            <TableCell>{listing["name"]}</TableCell>
+            <TableCell><Link to={`/listing/${listing.id}`}>{listing["name"]}</Link></TableCell>
             <TableCell>{listing["address"]}</TableCell>
             <TableCell>{listing["hours"]}</TableCell>
             <TableCell>{listing["description"]}</TableCell>
