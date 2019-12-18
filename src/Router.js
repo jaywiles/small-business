@@ -8,14 +8,6 @@ import Add from './containers/Add'
 import user from './redux/reducers'
 
 const Router = () => {
-  // const checkAuth = (props) => {
-  //   if (props.loggedIn) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
-  
   const checkAuth = () => {
     const cookies = cookie.parse(document.cookie)
     return cookies["loggedIn"] ? true : false
@@ -31,10 +23,6 @@ const Router = () => {
         />
     )
   }
-
-  // render() {
-  //   <Route path="..." component={() => <Login loggedIn={props.loggedIn}} signIn={props.signIn} />} />
-  // }
   
   return (
     <Switch>

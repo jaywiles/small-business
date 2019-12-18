@@ -1,5 +1,3 @@
-// need addListing (like addCar) - ref cont/Add.js
-
 export const addListing = (listing) => {
   return {
     type: 'ADD_LISTING',
@@ -13,17 +11,3 @@ export const deleteListing = (index) => {
     value: index
   }
 }
-
-// export const login = () => {
-//   return {
-//     type: "LOGIN_COMPLETE",
-//     loggedIn: true,
-//   }
-// }
-
-// export const logout = () => {
-//   return {
-//     type: "LOGOUT_COMPLETE",
-//     loggedIn: false,
-//   }
-// }

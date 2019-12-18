@@ -30,19 +30,7 @@ class Add extends Component {
     console.log("LISTING: ", listing)
     this.props.addListing(listing)
     this.props.history.push("/")
-    // window.location.replace("/")
   }
-
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   // if (prevState.open !== this.state.open) {
-  //     this.setState({
-  //       name: '',
-  //       address: '',
-  //       hours: '',
-  //       description: ''
-  //     })
-  //   // }
-  // }
 
   render() {
     return (

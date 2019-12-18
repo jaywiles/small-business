@@ -6,12 +6,6 @@ import { Link } from 'react-router-dom'
 const Listings = (props) => {
   return (
     <Container maxWidth="lg" className="listing-container">
-      {/* <h4>Welcome, {props.user.username}</h4> */}
-      {/* <div className="flex-container">
-        <Chart />
-        <Total />
-        <AddListing listingTotal={props.listings.length} />
-      </div> */}
       <Table>
         <TableHead>
           <TableRow>
@@ -20,7 +14,9 @@ const Listings = (props) => {
             <TableCell>Address</TableCell>
             <TableCell>Hours</TableCell>
             <TableCell>Description</TableCell>
-            <TableCell>Delete</TableCell>
+            {document.cookie == "loggedIn=true" ? (
+              <TableCell>Delete</TableCell>
+            ):(null)}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -34,11 +30,13 @@ const Listings = (props) => {
             <TableCell>{listing["address"]}</TableCell>
             <TableCell>{listing["hours"]}</TableCell>
             <TableCell>{listing["description"]}</TableCell>
-            <TableCell>
-              <DeleteIcon
-                onClick={() => props.deleteListing(index)}
-                className="icon text-red" />
-            </TableCell>
+            {document.cookie == "loggedIn=true" ? (
+              <TableCell>
+                <DeleteIcon
+                  onClick={() => props.deleteListing(index)}
+                  className="icon text-red" />
+              </TableCell>
+            ):(null)}
           </TableRow>
         ))}
         </TableBody>

@@ -8,37 +8,15 @@ import store from './redux/store'
 import cookie from 'cookie'
 
 function App() {
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       loggedIn: false,
-//       // username: '',
-//       // password: '',
-//     }
-//   }
-
-//   toggleSignIn = () => {
-// 		this.setState({ loggedIn: !this.state.loggedIn })
-//   }
-
-  // render() {
     return (
       <Provider store={store}>
         <BrowserRouter>
         {console.log(document.cookie)}
-          <Nav
-            // loggedIn={this.state.loggedIn}
-            // signOut={this.toggleSignIn} 
-            />
-          <Router
-            // loggedIn={this.state.loggedIn}
-            // signIn={this.toggleSignIn} 
-            />
+          <Nav />
+          <Router />
         </BrowserRouter>
       </Provider>
     );
-  // }
 }
 
 export default App;
