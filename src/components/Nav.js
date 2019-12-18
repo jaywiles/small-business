@@ -6,23 +6,19 @@ import '../App.css'
 import { logout } from '../redux/actions'
 import cookie from 'cookie'
 
-const Nav = ({user}) => {
+const Nav = (props) => {
   const navStyle = {
     color: 'white',
   }
 
   const handleLogout = (e) => {
     e.preventDefault();
-    console.log(user.loggedIn)
     logout();
-    // document.cookie = "loggedIn=false";
-    console.log(document.cookie)
-    console.log(logout());
-    // history.push("/");
+    // props.signIn();
   }
 
   // if (document.cookie = "loggedIn=true") {
-  if (user.loggedIn) {
+  if (props.loggedIn) {
     return (
       <AppBar position="relative">
         <Toolbar>
@@ -44,7 +40,7 @@ const Nav = ({user}) => {
         </Toolbar>
       </AppBar>
     )
-  } else if (!user.loggedIn)
+  } else if (!props.loggedIn)
   // if (document.cookie = "loggedIn=false") 
     {
     return (

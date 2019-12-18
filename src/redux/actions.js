@@ -14,16 +14,16 @@ export const deleteListing = (index) => {
   }
 }
 
-export const login = (user) => {
+export const login = () => {
   return {
     type: "LOGIN_COMPLETE",
-    value: user
+    loggedIn: true,
   }
 }
 
-export const logout = (user) => {
+export const logout = () => {
   return {
     type: "LOGOUT_COMPLETE",
-    // value: user
+    loggedIn: false,
   }
 }

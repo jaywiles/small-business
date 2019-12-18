@@ -1,8 +1,7 @@
 export default {
-  // loggedIn: false,
   user: {
-    // username: 'test',
-    // password: 'test',
+    username: '',
+    password: '',
     loggedIn: false,
   },
   listings: [

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import Login from '../components/Login'
 import { withRouter } from "react-router-dom";
-import { login } from '../redux/actions'
+// import { login } from '../redux/actions'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   console.log(state);
   return {
     user: state.user
@@ -16,4 +16,4 @@ const mapStateToProps = state => {
 //   }
 // }
 
-export default withRouter(connect(mapStateToProps, {login})(Login));
+export default withRouter(connect(mapStateToProps, null)(Login));

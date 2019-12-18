@@ -8,8 +8,8 @@ import {
   Container
 } from '@material-ui/core'
 import { login } from '../redux/actions'
-import listings from '../redux/state'
-import cookie from 'cookie'
+// import listings from '../redux/state'
+// import cookie from 'cookie'
 
 class Login extends Component {
   state = {
@@ -23,36 +23,17 @@ class Login extends Component {
     this.setState(newState)
   }
 
-  handleLogin = (e, {user}) => {
-    // console.log("this is a test")
+  handleLogin = (e) => {
     e.preventDefault();
-    {console.log(user.loggedIn)}
-    document.cookie = "loggedIn=true";
-    {console.log(document.cookie)}
-    // const user = (this.state.username, this.state.password)
     login();
-    // console.log(user);
-    // console.log(login())
+    this.props.history.push("/");
     // window.location.replace("/");
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   const newListing = { ...this.state }
-  //   // last part of next line changed from carTotal
-  //   newListing.id = this.props.listingTotal + 1
-  //   // delete newListing.open
-  //   console.log("LISTING: ", newListing)
-  //   // last part of next line changed from addCar
-  //   this.props.addListing(newListing)
-  // }
-
-  // need to split up user/pw for handling change??
-
-  render() {
+  render(props) {
+    // console.log(login())
     return (
       <div className="signin-container">
-        {console.log(document.cookie)}
         <AppBar position="static">
           <Typography>Sign In</Typography>
         </AppBar>
@@ -86,7 +67,6 @@ class Login extends Component {
             fullWidth
             variant="contained"
             color="primary"
-            // onClick={() => { login() }}
           >Sign In</Button>
         </form>
       </div>

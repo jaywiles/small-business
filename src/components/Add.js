@@ -22,15 +22,11 @@ class Add extends Component {
   }
 
   handleSubmit = (e) => {
-    // debugger;
     e.preventDefault()
-    const newListing = { ...this.state }
-    // last part of next line changed from carTotal
-    newListing.id = this.props.listingTotal + 1
-    // delete newListing.open
-    console.log("LISTING: ", newListing)
-    // last part of next line changed from addCar
-    this.props.addListing(newListing)
+    const listing = { ...this.state }
+    listing.id = this.props.listingTotal + 1
+    console.log("LISTING: ", listing)
+    this.props.addListing(listing)
   }
 
   componentDidUpdate = (prevProps, prevState) => {
