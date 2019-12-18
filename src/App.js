@@ -26,7 +26,7 @@ function App() {
     return (
       <Provider store={store}>
         <BrowserRouter>
-        {/* {console.log(props.loggedIn)} */}
+        {console.log(document.cookie)}
           <Nav
             // loggedIn={this.state.loggedIn}
             // signOut={this.toggleSignIn} 

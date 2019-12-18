@@ -25,6 +25,8 @@ const user = (state = [], action) => {
 const listings = (state = [], action) => {
   switch(action.type) {
     case 'ADD_LISTING':
+      const lastItem = state[state.length-1]
+      action.value.id = lastItem.id + 1
       return [...state, action.value]
     case 'DELETE_LISTING':
       const listings = [...state]

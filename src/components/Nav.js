@@ -20,7 +20,7 @@ const Nav = (props) => {
     // props.signIn();
   }
 
-  if (document.cookie = "loggedIn=true") {
+  if (document.cookie == "loggedIn=true") {
   // if (props.loggedIn) {
     return (
       <AppBar position="relative">
@@ -45,7 +45,7 @@ const Nav = (props) => {
     )
   }
   // } else if (!props.loggedIn)
-  if (document.cookie = "loggedIn=false") 
+  else
     {
     return (
       <AppBar position="relative">

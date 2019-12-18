@@ -16,8 +16,10 @@ class Add extends Component {
   }
 
   handleTextChange = (e) => {
+    e.preventDefault()
     const newState = { ...this.state }
     newState[e.target.id] = e.target.value
+    console.log(newState)
     this.setState(newState)
   }
 
@@ -27,18 +29,20 @@ class Add extends Component {
     listing.id = this.props.listingTotal + 1
     console.log("LISTING: ", listing)
     this.props.addListing(listing)
+    this.props.history.push("/")
+    // window.location.replace("/")
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    // if (prevState.open !== this.state.open) {
-      this.setState({
-        name: '',
-        address: '',
-        hours: '',
-        description: ''
-      })
-    // }
-  }
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   // if (prevState.open !== this.state.open) {
+  //     this.setState({
+  //       name: '',
+  //       address: '',
+  //       hours: '',
+  //       description: ''
+  //     })
+  //   // }
+  // }
 
   render() {
     return (
