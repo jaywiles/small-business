@@ -25,9 +25,11 @@ class Login extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    login();
-    this.props.history.push("/");
-    // window.location.replace("/");
+    document.cookie = "loggedIn=true;max-age=60*1000"
+    window.location.replace("/")
+
+    // login();
+    // this.props.history.push("/");
   }
 
   render(props) {

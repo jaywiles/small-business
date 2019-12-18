@@ -7,19 +7,19 @@ import Login from './containers/Login'
 import Add from './containers/Add'
 import user from './redux/reducers'
 
-const Router = (props) => {
-  const checkAuth = (props) => {
-    if (props.loggedIn) {
-      return true
-    } else {
-      return false
-    }
-  }
-  
-  // const checkAuth = () => {
-  //   const cookies = cookie.parse(document.cookie)
-  //   return cookies["loggedIn"] ? true : false
+const Router = () => {
+  // const checkAuth = (props) => {
+  //   if (props.loggedIn) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
   // }
+  
+  const checkAuth = () => {
+    const cookies = cookie.parse(document.cookie)
+    return cookies["loggedIn"] ? true : false
+  }
   
   const ProtectedRoute = ({component: Component, ...rest}) => {
     return (
@@ -38,7 +38,7 @@ const Router = (props) => {
   
   return (
     <Switch>
-      {console.log(props.loggedIn)}
+      {console.log(document.cookie)}
       <Route exact path="/" component={Listings}/>
       <Route path="/listing/:id" component={Listing}/>
       <Route path="/login" component={Login}/>

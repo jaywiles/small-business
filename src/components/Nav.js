@@ -13,12 +13,15 @@ const Nav = (props) => {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    logout();
+    document.cookie = "loggedIn=false;max-age=60*1000"
+    window.location.replace("/")
+
+    // logout();
     // props.signIn();
   }
 
-  // if (document.cookie = "loggedIn=true") {
-  if (props.loggedIn) {
+  if (document.cookie = "loggedIn=true") {
+  // if (props.loggedIn) {
     return (
       <AppBar position="relative">
         <Toolbar>
@@ -40,8 +43,9 @@ const Nav = (props) => {
         </Toolbar>
       </AppBar>
     )
-  } else if (!props.loggedIn)
-  // if (document.cookie = "loggedIn=false") 
+  }
+  // } else if (!props.loggedIn)
+  if (document.cookie = "loggedIn=false") 
     {
     return (
       <AppBar position="relative">

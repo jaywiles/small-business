@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store'
 import cookie from 'cookie'
 
-function App(props) {
+function App() {
 // class App extends Component {
 //   constructor(props) {
 //     super(props);
@@ -26,7 +26,7 @@ function App(props) {
     return (
       <Provider store={store}>
         <BrowserRouter>
-        {console.log(props.loggedIn)}
+        {/* {console.log(props.loggedIn)} */}
           <Nav
             // loggedIn={this.state.loggedIn}
             // signOut={this.toggleSignIn} 
